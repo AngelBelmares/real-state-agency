@@ -7,8 +7,12 @@ namespace CarDealership.Configurations
     {
         public MappingProfile()
         {
-            CreateMap<Car, CarDto>()
-                .ForMember(dest => dest.DealerShipName, opt => opt.MapFrom(src => src.Dealership != null ? src.Dealership.Name : ""));
+            CreateMap<User, UserDto>();
+
+            CreateMap<Appointment, AppointmentDto>()
+                .ForMember(d => d.UserCompleteName, opt => opt.MapFrom(src => src.User!.Name + " " + src.User.Lastname))
+                .ForMember(d => d.AgentCompleteName, opt => opt.MapFrom(src => src.Agent!.Name + " " + src.Agent.Lastname))
+                .ForMember(d => d.HouseLocation, opt => opt.MapFrom(src => src.House!.Location));
         }
     }
 }

@@ -1,4 +1,6 @@
 using CarDealership.Configurations;
+using CarDealership.Controllers;
+using CarDealership.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +11,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+var jwtSettings = builder.Configuration.GetSection("JwtSettings");
+
+builder.Services.AddScoped<JwtTokenService>();
+builder.Services.AddScoped<HousesController>();
+builder.Services.AddScoped<UsersController>();
+
 // Custom
+builder.Services.AddJwtAuth(builder.Configuration);
 builder.Services.AddDbContextServices(builder.Configuration);
 builder.Services.AddAutoMapper(typeof(Program));
 
@@ -24,6 +33,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
