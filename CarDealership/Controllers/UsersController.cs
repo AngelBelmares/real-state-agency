@@ -6,10 +6,12 @@ using System.Reflection.Metadata;
 using System.Text.RegularExpressions;
 using RealStateAgency.Models;
 using RealStateAgency.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace RealStateAgency.Controllers
 {
     [ApiController]
+    [AllowAnonymous]
     [Route("[controller]")]
     public class UsersController : ControllerBase
     {

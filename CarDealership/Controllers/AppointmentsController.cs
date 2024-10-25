@@ -6,7 +6,7 @@ using RealStateAgency.Models;
 
 namespace RealStateAgency.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
     [ApiController]
     [Route("[controller]")]
     public class AppointmentsController(RealStateAgencyContext context, IMapper mapper) : ControllerBase

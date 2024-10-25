@@ -6,7 +6,7 @@ using RealStateAgency.Models;
 
 namespace RealStateAgency.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
     [ApiController]
     [Route("[controller]")]
     public class HousesController(RealStateAgencyContext context, IMapper mapper) : ControllerBase
