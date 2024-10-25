@@ -1,7 +1,7 @@
-﻿using CarDealership.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using RealStateAgency.Models;
 
-namespace CarDealership.Configurations
+namespace RealStateAgency.Configurations
 {
     public static class DbContext
     {
@@ -10,7 +10,7 @@ namespace CarDealership.Configurations
             string enviroment = config.GetSection("Enviroment").Value!;
             string connectionString = config.GetConnectionString(enviroment)!;
 
-            services.AddDbContext<CarDealershipContext>(options =>
+            services.AddDbContext<RealStateAgencyContext>(options =>
             {
                 options.UseNpgsql(connectionString);
             });

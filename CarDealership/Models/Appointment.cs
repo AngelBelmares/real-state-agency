@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CarDealership.Models;
+namespace RealStateAgency.Models;
 
 public partial class Appointment
 {

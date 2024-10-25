@@ -1,17 +1,17 @@
 ﻿using AutoMapper;
-using CarDealership.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using RealStateAgency.Models;
 
-namespace CarDealership.Controllers
+namespace RealStateAgency.Controllers
 {
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public class AppointmentsController(CarDealershipContext context, IMapper mapper) : ControllerBase
+    public class AppointmentsController(RealStateAgencyContext context, IMapper mapper) : ControllerBase
     {
-        private readonly CarDealershipContext _context = context;
+        private readonly RealStateAgencyContext _context = context;
 
         [HttpGet]
         public async Task<List<Appointment>> GetAppointments([FromQuery] AppointmentFilter filter)

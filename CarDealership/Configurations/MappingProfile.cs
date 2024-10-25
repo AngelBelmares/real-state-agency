@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using CarDealership.Models;
+using RealStateAgency.Models;
 
-namespace CarDealership.Configurations
+namespace RealStateAgency.Configurations
 {
     public class MappingProfile : Profile
     {

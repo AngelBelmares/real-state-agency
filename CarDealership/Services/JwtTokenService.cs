@@ -3,9 +3,9 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace CarDealership.Services
+namespace RealStateAgency.Services
 {
-    public class JwtTokenService 
+    public class JwtTokenService
     {
         private readonly IConfiguration _configuration;
 

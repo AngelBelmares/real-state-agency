@@ -2,7 +2,7 @@
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace CarDealership.Configurations
+namespace RealStateAgency.Configurations
 {
     public static class JwtSettings
     {

@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace CarDealership.Models;
+namespace RealStateAgency.Models;
 
-public partial class CarDealershipContext : DbContext
+public partial class RealStateAgencyContext : DbContext
 {
-    public CarDealershipContext()
+    public RealStateAgencyContext()
     {
     }
 
-    public CarDealershipContext(DbContextOptions<CarDealershipContext> options)
+    public RealStateAgencyContext(DbContextOptions<RealStateAgencyContext> options)
         : base(options)
     {
     }

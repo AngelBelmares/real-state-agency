@@ -1,17 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using CarDealership.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using RealStateAgency.Models;
 
-namespace CarDealership.Controllers
+namespace RealStateAgency.Controllers
 {
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public class HousesController(CarDealershipContext context, IMapper mapper) : ControllerBase
+    public class HousesController(RealStateAgencyContext context, IMapper mapper) : ControllerBase
     {
-        private readonly CarDealershipContext _context = context;
+        private readonly RealStateAgencyContext _context = context;
         private readonly IMapper _mapper = mapper;
 
         [HttpGet]

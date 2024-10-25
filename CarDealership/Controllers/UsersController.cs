@@ -1,23 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using CarDealership.Models;
 using AutoMapper.QueryableExtensions;
 using AutoMapper;
 using System.Reflection.Metadata;
 using System.Text.RegularExpressions;
-using CarDealership.Services;
+using RealStateAgency.Models;
+using RealStateAgency.Services;
 
-namespace CarDealership.Controllers
+namespace RealStateAgency.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class UsersController : ControllerBase
     {
-        private readonly CarDealershipContext _context;
+        private readonly RealStateAgencyContext _context;
         private readonly IMapper _mapper;
         private readonly JwtTokenService _jwtTokenService;
 
-        public UsersController(CarDealershipContext context, IMapper mapper, JwtTokenService jwtTokenService)
+        public UsersController(RealStateAgencyContext context, IMapper mapper, JwtTokenService jwtTokenService)
         {
             _context = context;
             _mapper = mapper;
@@ -34,13 +34,16 @@ namespace CarDealership.Controllers
                 if (req == null || req.Mail == null || req.Username == null)
                 {
                     return BadRequest("Request inválida");
-                } else if(req.Username?.Length < 8)
+                }
+                else if (req.Username?.Length < 8)
                 {
                     return BadRequest("El usuario debe tener al menos 8 carácteres");
-                } else if(!Regex.IsMatch(req.Mail, emailRegex))
+                }
+                else if (!Regex.IsMatch(req.Mail, emailRegex))
                 {
                     return BadRequest("Correo inválido");
-                } else if(req.Password.Length < 8)
+                }
+                else if (req.Password.Length < 8)
                 {
                     return BadRequest("La contraseña debe tener al menos 8 carácteres");
                 }

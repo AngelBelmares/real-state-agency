@@ -1,6 +1,6 @@
-using CarDealership.Configurations;
-using CarDealership.Controllers;
-using CarDealership.Services;
+using RealStateAgency.Configurations;
+using RealStateAgency.Controllers;
+using RealStateAgency.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
