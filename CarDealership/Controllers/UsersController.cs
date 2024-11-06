@@ -26,7 +26,7 @@ namespace RealStateAgency.Controllers
             _jwtTokenService = jwtTokenService;
         }
 
-        [HttpPost("register")]
+        [HttpPost]
         public async Task<ActionResult> CreateUser([FromBody] Login req)
         {
             try
@@ -67,11 +67,11 @@ namespace RealStateAgency.Controllers
             }
             catch
             {
-                return StatusCode(500, "Ocurrio un error inesperado");
+                return StatusCode(400, "Ocurrio un error");
             }
         }
 
-        [HttpPost("login")]
+        [HttpPost("Login")]
         public async Task<ActionResult> Login([FromBody] Login req)
         {
             try

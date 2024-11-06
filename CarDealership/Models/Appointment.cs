@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RealStateAgency.Models;
 
 public partial class Appointment
 {
-    public int AppointmentId { get; set; }
+    public int? AppointmentId { get; set; }
 
     public int? UserId { get; set; }
 
@@ -33,6 +32,7 @@ public class AppointmentDto
     public string AgentCompleteName { get; set; } = string.Empty;
     public int? HouseId { get; set; }
     public string HouseLocation { get; set; } = string.Empty;
+    public string HouseImage { get; set; } = string.Empty;
     public DateTime? Date { get; set; }
 }
 

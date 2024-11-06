@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,11 +15,14 @@ namespace RealStateAgency.Controllers
         private readonly RealStateAgencyContext _context = context;
 
         [HttpGet]
-        public async Task<List<Appointment>> GetAppointments([FromQuery] AppointmentFilter filter)
+        public async Task<List<AppointmentDto>> GetAppointments([FromQuery] AppointmentFilter filter)
         {
             try
             {
-                var query = _context.Appointments.AsQueryable();
+                var query = _context.Appointments
+                                    .ProjectTo<AppointmentDto>(mapper.ConfigurationProvider)
+                                    .OrderByDescending(a => a.Date)
+                                    .AsQueryable();
 
                 if (filter.AppointmentId.HasValue)
                 {
@@ -65,7 +69,7 @@ namespace RealStateAgency.Controllers
                     UserId = req.UserId,
                     AgentId = req.AgentId,
                     HouseId = req.HouseId,
-                    Date = req.Date,
+                    Date = DateTime.SpecifyKind(req.Date ?? DateTime.UtcNow, DateTimeKind.Unspecified),
                     CreatedAt = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified)
                 };
 

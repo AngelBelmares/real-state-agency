@@ -60,7 +60,7 @@ public partial class RealStateAgencyContext : DbContext
             entity.ToTable("appointments");
 
             entity.Property(e => e.AppointmentId)
-                .ValueGeneratedNever()
+                .ValueGeneratedOnAdd()
                 .HasColumnName("appointment_id");
             entity.Property(e => e.AgentId).HasColumnName("agent_id");
             entity.Property(e => e.CreatedAt)
